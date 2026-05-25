@@ -61,7 +61,9 @@ project-kavach/
 
 ## Current Status
 
-Iteration 1 — Environment Setup In Progress
+Iteration 2 - Security Lab Deployment Completed
+
+current focus : web application Vulnerability Assessment & Traffic Analysis
 
 ---
 
