@@ -48,3 +48,90 @@ project-kavach/
 ├── screenshots/
 ├── README.md
 └── retro.md
+
+
+---
+
+# Day 2 — Security Environment Deployment
+
+## Tasks Completed
+
+- Installed Docker Engine successfully
+- Started Docker daemon service
+- Verified Docker functionality using official hello-world container
+- Confirmed container image pulling and execution functionality
+- Created Docker Compose deployment configuration
+- Deployed DVWA vulnerable web application container
+- Deployed OWASP Juice Shop vulnerable web application container
+- Verified active container execution using `sudo docker ps`
+- Confirmed successful localhost accessibility of both applications
+
+---
+
+## Tools & Technologies Used
+
+| Category | Tools |
+|---|---|
+| Containerization | Docker, Docker Compose |
+| Vulnerable Applications | DVWA, OWASP Juice Shop |
+| Operating System | Ubuntu VM |
+| Network & Security | Wireshark |
+| Development Environment | VS Code |
+| Terminal | Bash |
+
+---
+
+## Environment Verification
+
+The Docker environment was verified successfully through:
+
+- Official Docker hello-world container execution
+- Successful Docker image retrieval from Docker Hub
+- Active execution of DVWA and OWASP Juice Shop containers
+- Successful exposure of containerized services on localhost ports 8080 and 3000
+
+---
+
+## Docker Deployment Configuration
+
+A `docker-compose.yml` configuration file was created to automate deployment of intentionally vulnerable web applications for cybersecurity testing and OWASP Top 10 security analysis.
+
+---
+
+## Container Status Verification
+
+The following containers were verified as active and operational:
+
+| Container | Status | Port |
+|---|---|---|
+| DVWA | Running | 8080 |
+| OWASP Juice Shop | Running | 3000 |
+
+---
+
+## Observations
+
+- Docker daemon initialized successfully
+- Docker container networking operational
+- Vulnerable web applications deployed successfully
+- Local penetration testing lab environment established successfully
+
+---
+
+## Evidence Collected
+
+- Docker installation verification screenshot
+- Running container verification screenshot
+- DVWA application deployment screenshot
+- OWASP Juice Shop deployment screenshot
+
+---
+
+## Next Planned Tasks
+
+- Begin DVWA authentication and setup
+- Perform initial SQL Injection testing
+- Perform XSS testing within DVWA
+- Begin OWASP Juice Shop vulnerability exploration
+- Capture initial penetration testing screenshots
+- Start PCAP traffic analysis using Wireshark
