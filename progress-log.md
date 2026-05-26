@@ -135,3 +135,25 @@ The following containers were verified as active and operational:
 - Begin OWASP Juice Shop vulnerability exploration
 - Capture initial penetration testing screenshots
 - Start PCAP traffic analysis using Wireshark
+
+
+---
+
+
+
+# Day 3 — Initial DVWA Vulnerability Assessment
+
+## Activities Performed
+
+- Accessed DVWA vulnerable web application successfully
+- Configured DVWA security level to Low
+- Opened SQL Injection testing module
+- Performed baseline query testing
+- Executed SQL Injection payload testing
+- Verified vulnerable backend query behavior
+- Collected exploitation evidence screenshots
+
+## Payload Used
+
+```sql
+1' OR '1'='1
