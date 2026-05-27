@@ -51,7 +51,6 @@ project-kavach/
 
 
 ---
-
 # Day 2 — Security Environment Deployment
 
 ## Tasks Completed
@@ -141,7 +140,7 @@ The following containers were verified as active and operational:
 
 
 
-# Day 3 — Initial DVWA Vulnerability Assessment
+# Day 3 — Injection Testing & Enumeration
 
 ## Activities Performed
 
@@ -157,3 +156,40 @@ The following containers were verified as active and operational:
 
 ```sql
 1' OR '1'='1
+
+
+---
+
+
+# Day 4 — Vulnerability Assessment & Exploitation
+
+## Activities Completed
+
+- Performed SQL Injection exploitation testing on DVWA
+- Verified reflected Cross-Site Scripting (XSS) vulnerability
+- Executed command injection payloads using whoami
+- Confirmed unrestricted PHP file upload vulnerability
+- Validated remote code execution through uploaded shell.php
+- Conducted brute-force authentication testing
+- Collected vulnerability evidence screenshots
+- Organized findings and project repository structure
+
+## Vulnerabilities Successfully Demonstrated
+
+- SQL Injection
+- Reflected XSS
+- Command Injection
+- File Upload Vulnerability
+- Weak Authentication / Brute Force
+
+## Evidence Collected
+
+- SQL Injection exploitation output
+- XSS alert execution
+- Command injection whoami response
+- PHP upload execution results
+- Authentication testing screenshots
+
+## Status
+
+Day 4 practical vulnerability assessment completed successfully.
