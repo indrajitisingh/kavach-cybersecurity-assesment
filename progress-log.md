@@ -193,3 +193,61 @@ The following containers were verified as active and operational:
 ## Status
 
 Day 4 practical vulnerability assessment completed successfully.
+
+
+---
+
+
+# Day 5 — Network Traffic Analysis & Monitoring
+
+## Activities Completed
+
+- Installed and launched Wireshark network analyzer
+- Selected loopback interface (lo) for localhost traffic capture
+- Generated OWASP Juice Shop traffic for packet analysis
+- Captured localhost TCP communication on port 3000
+- Applied Wireshark traffic filters for packet inspection
+- Verified successful packet capture and protocol visibility
+- Observed source and destination localhost communication
+- Collected traffic analysis evidence screenshots
+
+---
+
+## Tools & Technologies Used
+
+| Category | Tools |
+|---|---|
+| Packet Analysis | Wireshark |
+| Vulnerable Application | OWASP Juice Shop |
+| Operating System | Ubuntu VM |
+| Network Protocols | TCP/IP |
+| Traffic Monitoring | Loopback Interface (lo) |
+
+---
+
+## Filters Used
+
+```wireshark
+tcp.port == 3000
+```
+
+---
+
+## Observations
+
+- Successfully captured localhost web traffic
+- Verified TCP packet communication between local services
+- Packet filtering worked correctly using Wireshark filters
+- Loopback interface captured Docker-hosted application traffic successfully
+
+---
+
+## Evidence Collected
+
+- Wireshark Juice Shop traffic capture screenshot
+
+---
+
+## Status
+
+Day 5 network traffic analysis completed successfully.
