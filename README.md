@@ -61,9 +61,9 @@ project-kavach/
 
 ## Current Status
 
-Iteration 2 - Security Lab Deployment Completed
+Iteration 5 - wireshark traffic analysis 
 
-current focus : web application Vulnerability Assessment & Traffic Analysis
+current focus : Analysis , evidence , and reporting quality
 
 ---
 
