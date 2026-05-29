@@ -251,3 +251,46 @@ tcp.port == 3000
 ## Status
 
 Day 5 network traffic analysis completed successfully.
+
+
+---
+
+
+# Day 6 — OWASP Juice Shop Security Assessment
+
+## Activities Completed
+
+- Performed authentication validation testing on OWASP Juice Shop
+- Verified application login error handling mechanisms
+- Inspected browser Local Storage and Session Storage
+- Identified client-side storage of user input data
+- Captured localhost application traffic using Wireshark
+- Applied traffic filtering for Juice Shop service on port 3000
+- Observed TCP communication between local services
+- Collected assessment evidence screenshots
+
+---
+
+## Tools & Technologies Used
+
+| Category | Tools |
+|---|---|
+| Web Application Testing | OWASP Juice Shop |
+| Browser Analysis | Firefox Developer Tools |
+| Network Analysis | Wireshark |
+| Operating System | Ubuntu VM |
+| Network Protocols | TCP/IP |
+
+---
+
+## Evidence Collected
+
+- Login validation testing screenshot
+- Local storage inspection screenshot
+- Network traffic capture screenshot
+
+---
+
+## Status
+
+Day 6 OWASP Juice Shop security assessment completed successfully.
