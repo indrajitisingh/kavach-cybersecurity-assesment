@@ -61,9 +61,9 @@ project-kavach/
 
 ## Current Status
 
-Iteration 5 - wireshark traffic analysis 
+Iteration 6 :- completed -vulnerability assessment , exploitation testing, and network traffic analysis successfully performed.
 
-current focus : Analysis , evidence , and reporting quality
+current focus : Doucmentation , findings , consolidation , report preparation , and final report review.
 
 ---
 
