@@ -294,3 +294,64 @@ Day 5 network traffic analysis completed successfully.
 ## Status
 
 Day 6 OWASP Juice Shop security assessment completed successfully.
+
+
+
+---
+
+
+# Day 7 — Access Control Investigation & API Analysis
+
+## Activities Completed
+
+- Created authenticated OWASP Juice Shop user account
+- Added product to basket and completed purchase workflow
+- Created and tracked a valid customer order
+- Analyzed Order History functionality
+- Identified order tracking endpoint using unique order identifier
+- Captured API requests using browser developer tools
+- Inspected network traffic and application responses
+- Verified order tracking data retrieval through API endpoint
+- Collected evidence for Broken Access Control / IDOR investigation
+
+---
+
+## Evidence Collected
+
+- User registration and authentication evidence
+- Order creation workflow evidence
+- Order history evidence
+- Order tracking URL evidence
+- API response evidence from tracking endpoint
+
+---
+
+## Current Status
+
+- Five OWASP vulnerabilities demonstrated successfully
+- Initial Broken Access Control investigation performed
+- API endpoint enumeration and response analysis completed
+- Finding documentation phase pending
+- SAST and remediation phase pending
+
+---
+
+## Next Planned Tasks
+
+- Create formal vulnerability reports
+- Document payloads, evidence, business impact and remediation
+- Run Semgrep SAST analysis
+- Run Bandit SAST analysis
+- Create remediation examples
+- Compare before and after remediation results
+
+---
+
+# Status
+
+Day 7 Access Control Investigation & API Analysis.
+
+
+---
+
+

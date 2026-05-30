@@ -61,10 +61,9 @@ project-kavach/
 
 ## Current Status
 
-Iteration 6 :- completed -vulnerability assessment , exploitation testing, and network traffic analysis successfully performed.
+Iteration 7 - Web Security Assessment - Documentation , SAST & Remediation
 
-current focus : Doucmentation , findings , consolidation , report preparation , and final report review.
-
+current focus : Complete vulnerability documentation , perform SAST analysis, and prepare remediation evidence before starting Network Forensics
 ---
 
 ## Ethical Notice
