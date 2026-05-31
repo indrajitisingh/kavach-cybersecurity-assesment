@@ -355,3 +355,47 @@ Day 7 Access Control Investigation & API Analysis.
 ---
 
 
+# Day 8 — Broken Access Control (IDOR) Validation
+
+## Activities Completed
+
+- Created separate victim and attacker accounts in OWASP Juice Shop
+- Generated and tracked a victim order
+- Identified order tracking endpoint and order identifier
+- Tested access control by reusing victim order ID from attacker account
+- Successfully demonstrated IDOR / Broken Access Control vulnerability
+- Captured victim, attacker, and API response evidence
+- Validated fifth OWASP Top 10 vulnerability category
+
+---
+
+## Evidence Collected
+
+- Victim order history evidence
+- Attacker account evidence
+- Unauthorized API response evidence
+
+---
+
+## Current Status
+
+- Five OWASP Top 10 vulnerability categories demonstrated
+- IDOR finding successfully validated
+- Vulnerability documentation pending
+- SAST analysis pending
+- Remediation phase pending
+
+---
+
+## Next Planned Tasks
+
+- Create formal finding reports (F-01 to F-05)
+- Document payloads, evidence, root cause, business impact, and remediation
+- Run Semgrep SAST analysis
+- Run Bandit SAST analysis
+- Create remediation examples and collect before/after evidence
+
+
+---
+
+Day 8 Broken Access Control (IDOR)

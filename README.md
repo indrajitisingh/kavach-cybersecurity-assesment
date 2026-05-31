@@ -61,10 +61,10 @@ project-kavach/
 
 ## Current Status
 
-Iteration 7 - Web Security Assessment - Documentation , SAST & Remediation
+Iteration 8 - broken Access Control (IDOR)
 
-current focus : Complete vulnerability documentation , perform SAST analysis, and prepare remediation evidence before starting Network Forensics
----
+current focus : Complete formal documentation for all five validation OWSAP findings, perform SAST analysis , and prepare remediation evidence before beginning Network Forensics
+--- 
 
 ## Ethical Notice
 
