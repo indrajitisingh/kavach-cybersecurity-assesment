@@ -399,3 +399,31 @@ Day 7 Access Control Investigation & API Analysis.
 ---
 
 Day 8 Broken Access Control (IDOR)
+
+
+---
+
+
+## Day 9 Progress
+
+- Completed F-01 SQL Injection documentation.
+- Added SQLi request/response evidence and payload progression.
+- Completed F-02 Reflected XSS documentation.
+- Added XSS request/response evidence and execution screenshots.
+- Completed F-03 Authentication Failure (Brute Force) documentation.
+- Added brute force request/response evidence and login verification screenshot.
+- Documented root cause, business impact, and remediation for all three findings.
+- Organized findings under `webapp/findings/`.
+- Updated project evidence and supporting artifacts.
+
+## Next Plane Phase
+
+- Complete F-04 File Upload vulnerability documentation.
+- Add request/response and payload evidence.
+- Begin SAST and remediation artifacts.
+- Review findings and prepare for final synthesis phase.
+
+
+
+---
+

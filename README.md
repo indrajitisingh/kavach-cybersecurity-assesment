@@ -61,7 +61,7 @@ project-kavach/
 
 ## Current Status
 
-Iteration 8 - broken Access Control (IDOR)
+Iteration 9 - documentation for vulnerability
 
 current focus : Complete formal documentation for all five validation OWSAP findings, perform SAST analysis , and prepare remediation evidence before beginning Network Forensics
 --- 
