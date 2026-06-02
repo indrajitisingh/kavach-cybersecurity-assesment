@@ -1,0 +1,65 @@
+========================================================
+FINDING F-03 — Brute Force Attack / Authentication Failure
+Target: DVWA | Module: Brute Force | Security Level: Low
+========================================================
+
+--- REQUEST 1 — Failed login attempt (probing for failure message) ---
+
+GET http://localhost:8080/vulnerabilities/brute/?username=admin&password=wrongpass&Login=Login HTTP/1.1
+Host: localhost:8080
+Cookie: PHPSESSID=<your-session-id>; security=low
+
+--- RESPONSE TO FAILED ATTEMPT ---
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+
+<pre><br />Username and/or password incorrect.</pre>
+
+The failure string "Username and/or password incorrect." is the
+oracle used by automated tools to distinguish wrong passwords from
+the correct one. No lockout, no delay, no CAPTCHA was triggered.
+
+--- REQUEST 2 — Successfull login  Verification ---
+
+GET http://localhost:8080/vulnerabilities/brute/?username=admin&password=password&Login=Login HTTP/1.1
+Host: localhost:8080
+Cookie: PHPSESSID=<your-session-id>; security=low
+
+--- RESPONSE TO SUCCESSFUL ATTEMPT ---
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+
+Welcome to the password protected area admin
+
+The server granted access after supplying the correct credentials . 
+This confims that the application differentiates Successfull and failed Authentication attempts 
+through distinct RESPONSE message
+
+Repeated manual testing showed no account lockout, CAPTCHA,
+rate limiting, warning message, or delay mechanism. This indicates
+the login endpoint is vulnerable to automated password-guessing
+attacks if an attacker chooses to use a brute-force tool.
+
+
+--- OBSERVATION ---
+
+The application processes login attempts via a GET request, which
+exposes credentials in the URL (visible in logs, browser history,
+and proxy records). There is no rate limiting, no account lockout
+after repeated failures, no CAPTCHA challenge, and no artificial
+delay between attempts. An automated tool can therefore iterate
+through an entire wordlist at full network speed, limited only by
+the server's request handling capacity.
+
+The correct password ("password") appears in the rockyou.txt
+wordlist within the first few thousand entries, meaning the attack
+completed in seconds under local network conditions.
+
+========================================================
+Tool used: Browser (Firefox) for manual confirmation;
+           THC Hydra for automated credential attack
+Date: [fill in your actual test date]
+Tester: Indrajit Singh
+========================================================
