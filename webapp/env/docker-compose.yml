@@ -8,6 +8,8 @@ services:
     ports:
       - "8080:80"
     restart: always
+    security_opt:
+      - no-new-privileges:true
 
   juice-shop:
     image: bkimminich/juice-shop
@@ -15,3 +17,5 @@ services:
     ports:
       - "3000:3000"
     restart: always
+    security_opt:
+      - no-new-privileges:true

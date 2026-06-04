@@ -427,3 +427,21 @@ Day 8 Broken Access Control (IDOR)
 
 ---
 
+
+Day 10 Progress
+
+- Completed F-04 File Upload documentation.
+- Completed F-05 IDOR documentation.
+- Installed and configured Semgrep for SAST analysis.
+- Generated baseline scan ("before.json").
+- Identified 4 container security findings in Docker Compose configuration.
+- Applied remediation by adding "no-new-privileges" to DVWA and Juice Shop services.
+- Generated post-remediation scan ("after.json").
+- Documented SAST findings, remediation actions, and evidence artifacts.
+
+Day 11 Plan
+
+- Begin Network Forensics workstream.
+- Acquire and analyze PCAP dataset.
+- Perform traffic triage and IOC identification.
+- Document findings and supporting evidence.
