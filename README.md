@@ -61,9 +61,9 @@ project-kavach/
 
 ## Current Status
 
-Iteration 9 - documentation for vulnerability
+Iteration 10 - SAST Remediation and validation
 
-current focus : Complete formal documentation for all five validation OWSAP findings, perform SAST analysis , and prepare remediation evidence before beginning Network Forensics
+current focus : Transitioning to Network Forensics , PACP analysis,and IOC extraction
 --- 
 
 ## Ethical Notice
