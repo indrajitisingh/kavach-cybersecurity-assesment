@@ -1,0 +1,10 @@
+ioc_type,indicator,confidence,packet_range_start,packet_range_end,supporting_frames,notes,mitre_technique
+ip,153.92.1.49,HIGH,1,51115,"all","External destination for 99.9% of capture traffic from 10.1.21.58; resolves to whitepepper.su",T1071.001 - Application Layer Protocol: Web Protocols
+ip,10.1.21.58,HIGH,1,51115,"all","Primary internal host; generated near-total capture volume; probable compromised workstation",T1071.001
+domain,whitepepper.su,HIGH,1,51115,"DNS queries","External domain receiving repeated beacon-style HTTP callbacks from internal host; .su TLD historically associated with malicious infrastructure",T1071.001
+uri_pattern,/api/set_agent,HIGH,1,51115,"all POST/GET frames","Repeated endpoint accessed via HTTP GET and POST; consistent with C2 agent registration or check-in URI pattern",T1071.001
+http_method_pattern,POST /api/set_agent,HIGH,1,51115,"POST frames","POST requests containing agent identifiers and authentication tokens; indicative of outbound C2 data exfil or tasking",T1041 - Exfiltration Over C2 Channel
+http_method_pattern,GET /api/set_agent,MEDIUM,1,51115,"GET frames","GET requests to same endpoint; may represent polling / heartbeat behaviour",T1071.001
+token_pattern,agent_id + auth_token params,HIGH,1,51115,"POST body frames","Request parameters include agent identifier and token fields; consistent with RAT or monitoring agent check-in protocol",T1071.001
+protocol,HTTP (plaintext),HIGH,1,51115,"all","All C2 communication travels unencrypted over HTTP; no TLS observed for external comms - anomalous for legitimate software in 2026",T1040 - Network Sniffing risk
+traffic_volume,51115 packets,HIGH,1,51115,"all","Near-total capture dominated by single internal-to-external conversation; zero baseline variance - matches Meridian FinServe trigger description",TA0010 - Exfiltration
