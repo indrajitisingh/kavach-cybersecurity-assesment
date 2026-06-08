@@ -445,3 +445,35 @@ Day 11 Plan
 - Acquire and analyze PCAP dataset.
 - Perform traffic triage and IOC identification.
 - Document findings and supporting evidence.
+
+  ---
+
+  Day 12 Progress Log – Network Forensics Investigation
+
+Objectives
+
+- Continue PCAP analysis and network traffic triage.
+- Identify suspicious hosts, external communications, and potential indicators of compromise (IOCs).
+- Validate initial hypotheses through protocol and conversation analysis.
+
+Activities Completed
+
+- Reviewed packet capture files located in the network/pcap directory.
+- Installed and configured tshark for command-line packet analysis.
+- Generated protocol hierarchy statistics to identify dominant protocols within the capture.
+- Performed TCP conversation analysis to identify top communicating hosts.
+- Identified host 10.1.21.58 as the primary system involved in network communications.
+- Observed repeated communications between internal host 10.1.21.58 and external infrastructure 153.92.1.49.
+- Documented preliminary indicators including IP addresses, domains, communication ports, and observed URI patterns.
+- Began drafting investigation hypotheses and evidence summaries.
+
+Key Findings
+
+- Total capture contained approximately 51,181 frames.
+- SMB2, TLS, TCP, and NBSS were the dominant protocols.
+- Repeated communications observed with whitepepper.su (153.92.1.49).
+- Potential beaconing behavior identified for further investigation.
+
+Status
+
+Network triage completed. Further validation and IOC documentation scheduled for Day 13.
