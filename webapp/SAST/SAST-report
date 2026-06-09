@@ -1,1 +1,52 @@
+# SAST Remediation Report
 
+## Tool Used
+
+- Semgrep OSS
+
+## Initial Scan Results
+
+| Metric         | Value |
+|----------------|-------|
+| Findings       | 4     |
+| Rules Run      | 118   |
+| Targets Scanned| 52    |
+
+## Findings Identified
+
+1. Missing `no-new-privileges` for DVWA
+2. Writable filesystem for DVWA
+3. Missing `no-new-privileges` for Juice Shop
+4. Writable filesystem for Juice Shop
+
+## Remediation Applied
+
+Added the following to both **DVWA** and **Juice Shop** services in `docker-compose.yml`:
+
+```yaml
+security_opt:
+  - no-new-privileges:true
+read_only: true
+```
+
+## Post-Remediation Scan Results
+
+| Metric   | Value |
+|----------|-------|
+| Findings | 1     |
+
+## Risk Reduction
+
+| Stage  | Findings |
+|--------|----------|
+| Before | 4        |
+| After  | 1        |
+| **Reduction** | **75%** |
+
+## Evidence
+
+Screenshots stored in:
+
+```
+webapp/SAST/screenshots/
+```
