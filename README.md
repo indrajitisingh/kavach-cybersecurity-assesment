@@ -61,9 +61,9 @@ project-kavach/
 
 ## Current Status
 
-Iteration 10 - SAST Remediation and validation
+Iteration 13 - Finalization & Submission
 
-current focus : Transitioning to Network Forensics , PACP analysis,and IOC extraction
+current focus : Prompt Log doc , Retro and lesson learned , Final verification , Respository cleanup and consistency checks.
 --- 
 
 ## Ethical Notice
