@@ -15,9 +15,9 @@
 
 ## Engagement Statistics
 
-| Workstreams | Total Findings | Critical | High | MITRE Techniques | OWASP Categories |
+| Workstreams | Total Findings | Critical | High |Medium | MITRE Techniques | OWASP Categories |
 |:-----------:|:--------------:|:--------:|:----:|:----------------:|:----------------:|
-| 2 | 9 | **4** | **4** | 9 | 4 |
+| 2 | 9 | **3** | **5** | 1 | 9 | 4 |
 
 ---
 
@@ -53,13 +53,15 @@
 
 Project KAVACH was a structured, end-to-end cybersecurity assessment of the Meridian FinServe environment conducted by Team Zero Trace. The engagement spanned two technical workstreams — network forensics and web application security — supported by threat modeling, attack path analysis, and defense-in-depth design.
 
-The assessment identified an active compromise scenario: a confirmed C2-beaconing workstation performing internal reconnaissance on the same network as a customer-facing web application carrying five exploitable vulnerabilities, including two rated Critical. Individually, each workstream produced significant findings. Collectively, they form a realistic, end-to-end attack path capable of enabling unauthorised access to sensitive customer financial data.
+The assessment identified an a worksattion exhibiting behaviour consistent with command-and -control (C2) communication and internal reconnaissance activity 
+operating within the same enviorment as a customer- facing web application containing five explotiable vulnerabilities , including two rated critical.
 
 | Overall Risk Rating | Network Forensics Risk | Web Application Risk |
 |:---:|:---:|:---:|
 | 🔴 **CRITICAL** | 🟠 **HIGH** | 🟠 **HIGH** |
 
-The assessment outcome is unambiguous: the Meridian FinServe environment has the conditions for a multi-stage breach already in place. Remediation is required across both workstreams before any further exposure is accepted.
+The assessment identified multiple high-confidence indicators of compromise and critical application-layer weaknesss that collectively present a credible 
+multi-stage attack scenario.
 
 ---
 
@@ -124,7 +126,7 @@ Findings from both workstreams were cross-referenced at the conclusion of techni
 | Total Data Volume | 26,423,689 bytes (~25.2 MB) |
 | Primary Suspect Host | `10.1.21.58` (DESKTOP-ES9F3ML) — responsible for 99.9% of all observed frames |
 | Internal Server Target | `10.1.21.2` — Active Directory / SMB |
-| Primary External Threat | `153.92.1.49` (`whitepepper.su`) — confirmed C2 infrastructure |
+| Primary External Threat | `153.92.1.49` (`whitepepper.su`) — infrastructure exhibting characteristics consistent with C2 activity |
 | SMB/NBSS Volume | 22,301 frames (43.6%) — named-pipe enumeration activity |
 | Suspicious DNS Domains | 7 high-risk domains across `.su`, `.sbs`, `.lat`, `.cc`, `.cyou` TLDs |
 
@@ -282,9 +284,10 @@ Findings were mapped to a six-layer control architecture rather than presented a
 
 ## 10. Conclusions
 
-KAVACH delivered a complete, evidence-based picture of the Meridian FinServe security posture across both network and application layers. The assessment confirmed that a realistic, multi-stage breach scenario exists today — not as a theoretical risk, but as an available attack path with each phase supported by validated findings.
+KAVACH delivered a complete, evidence-based picture of the Meridian FinServe security posture across both network and application layers. The assessment identified evidence supporting a realistic, multi-stage attack scenario, with each phase supported by observed network activity and validated application 
+findings.
 
-The attack path narrative is the key output of the engagement: a compromised internal workstation with active C2 communications and ongoing internal reconnaissance, operating in the same environment as a financial services application carrying three critical application-layer vulnerabilities. An attacker working both angles has a network foothold and application exploitation capabilities that individually would be serious — combined, they represent a credible, end-to-end path to customer data exposure and regulatory breach.
+The attack path narrative is the key output of the engagement: a  internal workstation exhibiting behaviour consistent with  C2 communications and ongoing internal reconnaissance, operating in the same environment as a financial services application carrying three critical application-layer vulnerabilities. An attacker working both angles has a network foothold and application exploitation capabilities that individually would be serious — combined, they represent a credible, end-to-end path to customer data exposure and regulatory breach.
 
 The remediation roadmap is structured to close the most severe and immediately exploitable paths first. P1 actions — workstation isolation, TLD blocking, SQL injection remediation, and file upload hardening — should be treated as incident response activities, not scheduled development work.
 
