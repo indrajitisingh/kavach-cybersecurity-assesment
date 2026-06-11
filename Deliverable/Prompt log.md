@@ -104,14 +104,14 @@ Pushpendra handled the reporting infrastructure — the stuff that makes a techn
 
 ---
 
-## M. Dubey
+## Mitrasen Dubey
 ### Security Documentation Reviewer
 
 ---
 
 *Contribution Summary*
 
-Dubey's role was quality at the document level — not writing the findings, but making sure what was written was accurate, consistent, and defensible before it left the team. That meant reading every section with fresh eyes, checking that remediation recommendations actually matched the findings they referred to, flagging places where language was vague or severity ratings seemed inconsistent with the evidence, and making sure the report would hold up to scrutiny from a technically literate client. The prompts here reflect a reviewer who was genuinely engaging with the content rather than doing a light pass — several of them deal with specific inconsistencies or edge cases that needed a considered response.
+Mitrasen's role was quality at the document level — not writing the findings, but making sure what was written was accurate, consistent, and defensible before it left the team. That meant reading every section with fresh eyes, checking that remediation recommendations actually matched the findings they referred to, flagging places where language was vague or severity ratings seemed inconsistent with the evidence, and making sure the report would hold up to scrutiny from a technically literate client. The prompts here reflect a reviewer who was genuinely engaging with the content rather than doing a light pass — several of them deal with specific inconsistencies or edge cases that needed a considered response.
 
 ---
 
