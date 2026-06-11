@@ -73,8 +73,6 @@ Chaitanya was responsible for keeping the engagement's evidence base clean, trac
 | 09 | Write an artifact tracking log entry format that anyone on the team can fill in consistently | i need the team to log artifacts as they go rather than at the end. what's a simple log entry format that captures everything useful — what it is, where it is, who made it, what finding it supports — without being so long that people don't bother filling it in | Produced a concise artifact log entry template with seven fields — used as the team's artifact tracking standard for the remainder of the engagement. |
 | 10 | Final check on the repository before closing it out after submission | engagement is done and i'm about to archive the repo. what's a sensible final check before i close it out — is there anything i should make sure is in there, anything i should clean up, any kind of sign-off record i should create | Outlined a repository closeout checklist including a final file count, confirmation of evidence completeness, removal of any working files not intended for record, and creation of a closeout log — completed and archived. |
 
----
-
 
 ---
 
