@@ -121,4 +121,5 @@ The thing about KAVACH is that the most important finding — the one that made 
 
 **Project Status:** Complete
 **Team:** Zero Trace
+
 **Assessment Outcome:** All primary workstreams delivered, documented, and submitted. Evidence base archived and signed off.
