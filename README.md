@@ -62,8 +62,8 @@ Security testing of a B2C financial services customer portal with live customer 
 |----------|----------|
 | Workstreams | 2 |
 | Findings Identified | 9 |
-| Critical Findings | 4 |
-| High Findings | 4 |
+| Critical Findings | 3 |
+| High Findings | 5 |
 | Medium Findings | 1 |
 | MITRE Techniques Mapped | 5+ |
 | OWASP Categories Mapped | 4 |
